@@ -1,4 +1,4 @@
-pmean <- function(directory, pollutant, id=1:length(file_list)) 
+pmean = function(directory, pollutant, id=1:length(file_list)) 
         {
          file.names <- dir(path=directory, pattern =".csv", full.names=TRUE)
          x <- numeric(0)
@@ -10,7 +10,7 @@ pmean <- function(directory, pollutant, id=1:length(file_list))
          mean(x, na.rm=TRUE)
         }
 
-complete <- function(directory, id=1:length(file_list))  
+complete = function(directory, id=1:length(file_list))  
             {
               file_list = list.files(directory)
               lst = file_list[match(id, as.numeric(sub(".csv","",file_list)))]
@@ -19,7 +19,7 @@ complete <- function(directory, id=1:length(file_list))
               data.frame(id = id, completed_obs = unlist(lapply(pth,obs)))
 }
 
-corr <- function(directory, threshold = 0) 
+corr = function(directory, threshold = 0) 
         {
   
         file.names <- dir(path=directory, pattern =".csv", full.names=TRUE)
