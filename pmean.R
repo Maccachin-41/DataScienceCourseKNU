@@ -1,4 +1,4 @@
-pmean = function(directory, pollutant, id=1:length(file_list)) 
+pmean = function(directory, pollutant, id=1:332) 
         {
          file.names <- dir(path=directory, pattern =".csv", full.names=TRUE)
          x <- numeric(0)
@@ -19,20 +19,20 @@ complete = function(directory, id=1:length(file_list))
               data.frame(id = id, completed_obs = unlist(lapply(pth,obs)))
 }
 
-corr = function(directory, threshold = 0) 
-        {
-  
-        file.names <- dir(path=directory, pattern =".csv", full.names=TRUE)
-        corr_v <- NULL
-        
-        for (i in 1:length(file_list)) {
-                dat <- read.csv(file.names[i])
-                data <- dat[complete.cases(dat),]
-             
-                  if (nrow(data) > threshold) {
-                  corr_v <- c(corr_v, cor(data[,"sulfate"], data[, "nitrate"]))
-                                              }
-                                        }
-        
-        return(corr_v)
-        }
+corr <- function(directory, threshold = 0) 
+ {
+     
+     file.names <- dir(path=directory, pattern =".csv", full.names=TRUE)
+     corr_vect <- NULL
+     
+     for (i in 1:332) {
+         dat <- read.csv(file.names[i])
+         data <- dat[complete.cases(dat),]
+         
+         if (nrow(data) > threshold) {
+             corr_vect <- c(corr_vect, cor(data[,"sulfate"], data[, "nitrate"]))
+         }
+     }
+     
+     return(corr_vect)
+ }
