@@ -23,7 +23,7 @@ corr <- function(directory, threshold = 0)
  {
      
      file.names <- dir(path=directory, pattern =".csv", full.names=TRUE)
-     corr_vect <- NULL
+     corr_vect <- numeric()
      
      for (i in 1:332) {
          dat <- read.csv(file.names[i])
